@@ -12,16 +12,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraPicker: UIBarButtonItem!
+    @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topText.text = "TOP"
+        topText.textAlignment = .Center
+        // topText.delegate = self
+        
+        bottomText.text = "BOTTOM"
+        bottomText.textAlignment = .Center
+        // bottomText.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    // when enter is pressed keyboard is dismissed
+    
+    func textFieldDidBeginEditing(topText: UITextField, bottomText: UITextField) {
+        topText.text = ""
+        bottomText.text = ""
+    }
+    
+    func textFieldShouldReturn(topText: UITextField, bottomText: UITextField) -> Bool {
+        topText.resignFirstResponder()
+        bottomText.resignFirstResponder()
+        return true
     }
     
     override func viewWillAppear(animated: Bool) {
         let cameraButton = cameraPicker
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
+    
   
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()

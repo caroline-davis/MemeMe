@@ -39,6 +39,16 @@
                                     <constraint firstAttribute="width" constant="240" id="4dP-kx-uSi"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BPt-UG-OVY">
+                                <rect key="frame" x="252" y="203" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5B4-ir-aFT">
+                                <rect key="frame" x="252" y="285" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -52,8 +62,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomText" destination="5B4-ir-aFT" id="BzE-ei-UNY"/>
                         <outlet property="cameraPicker" destination="n8a-WI-FyK" id="Hyt-oT-KEN"/>
                         <outlet property="imagePickerView" destination="xbx-fv-lO4" id="GcL-gi-3Rf"/>
+                        <outlet property="topText" destination="BPt-UG-OVY" id="BXc-4i-Om6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
