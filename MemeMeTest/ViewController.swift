@@ -27,13 +27,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         
         topText.text = "TOP"
-        topText.textAlignment = .Center
         topText.defaultTextAttributes = memeTextAttributes
+        topText.textAlignment = .Center
         topText.delegate = self
         
         bottomText.text = "BOTTOM"
-        bottomText.textAlignment = .Center
         bottomText.defaultTextAttributes = memeTextAttributes
+        bottomText.textAlignment = .Center
         bottomText.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -52,9 +52,50 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+        subscribeToKeyboardHideNotifications()
         let cameraButton = cameraPicker
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    // When the keyboardWillShow notification is received, shift the view's frame up      
+    func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y = -getKeyboardHeight(notification)
+    }
+    
+    func subscribeToKeyboardHideNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardHideNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    // When the keyboardWillHide notification is received, shift the view's frame down
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+
     
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
