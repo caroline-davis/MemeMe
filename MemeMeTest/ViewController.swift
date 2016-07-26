@@ -8,36 +8,46 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraPicker: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     
+    // Setting the text
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -3.0
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         topText.text = "TOP"
         topText.textAlignment = .Center
-        // topText.delegate = self
+        topText.defaultTextAttributes = memeTextAttributes
+        topText.delegate = self
         
         bottomText.text = "BOTTOM"
         bottomText.textAlignment = .Center
-        // bottomText.delegate = self
+        bottomText.defaultTextAttributes = memeTextAttributes
+        bottomText.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    // when enter is pressed keyboard is dismissed
-    
-    func textFieldDidBeginEditing(topText: UITextField, bottomText: UITextField) {
+    // Text deletes when user starts typing
+    @IBAction func textFieldDidBeginEditing(topText: UITextField, bottomText: UITextField) {
         topText.text = ""
         bottomText.text = ""
     }
     
-    func textFieldShouldReturn(topText: UITextField, bottomText: UITextField) -> Bool {
-        topText.resignFirstResponder()
-        bottomText.resignFirstResponder()
+    // when enter is pressed keyboard is dismissed
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
@@ -46,7 +56,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
-  
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -54,7 +63,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func pickAnImageFromCamera (sender: AnyObject) {
+    @IBAction func pickAnImageFromCamera(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
@@ -69,7 +78,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerControllerDidCancel(pickerController: UIImagePickerController) {
-        print("teste")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
