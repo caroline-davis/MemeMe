@@ -15,6 +15,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     
+    struct Meme {
+        var topText: String
+        var bottomText: String
+        var originalImage: UIImage
+        var memedImage: UIImage
+    }
+    
+    //Creating the meme
+    func save() {
+        
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage:
+            imagePickerView.image!, memedImage: generateMemedImage())
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar  
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+                                     afterScreenUpdates: true)
+        let memedImage : UIImage =
+            UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        // TODO:  Show toolbar and navbar
+        
+        return memedImage
+    }
+    
     // Setting the text
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -35,8 +67,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.textAlignment = .Center
         bottomText.delegate = self
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     // Text deletes when user starts typing
@@ -96,7 +126,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.CGRectValue().height
     }
 
-    
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -121,7 +150,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(pickerController: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
 
 }
 
