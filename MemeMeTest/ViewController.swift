@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraPicker: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var topToolBar: UINavigationBar!
     
     struct Meme {
         var topText: String
@@ -30,19 +32,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func generateMemedImage() -> UIImage {
+        print("I want to kill")
         
-        // TODO: Hide toolbar and navbar  
+        // TODO: Hide toolbar and navbar
+        bottomToolBar.hidden = true
+        topToolBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
-                                     afterScreenUpdates: true)
+                                    afterScreenUpdates: true)
         let memedImage : UIImage =
             UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        
         // TODO:  Show toolbar and navbar
+        bottomToolBar.hidden = false
+        topToolBar.hidden = false
         
         return memedImage
     }
