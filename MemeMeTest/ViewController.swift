@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topToolBar: UINavigationBar!
+    @IBOutlet weak var saveMe: UIBarButtonItem!
+    
     
     struct Meme {
         var topText: String
@@ -25,11 +27,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     //Creating the meme
-    func save() {
+    @IBAction func save() {
         
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage:
             imagePickerView.image!, memedImage: generateMemedImage())
+        let share = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
+        self.presentViewController(share, animated: true, completion: nil)
+        
+      //  UIActivityViewControllerCompletionWithItemsHandler()
     }
+    
+    
     
     func generateMemedImage() -> UIImage {
         print("I want to kill")
@@ -53,6 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
+    
     // Setting the text
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -73,6 +82,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.textAlignment = .Center
         bottomText.delegate = self
+        
+        saveMe.enabled = false
     }
     
     // Text deletes when user starts typing
@@ -149,6 +160,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(pickerController: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
+            saveMe.enabled = true
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
