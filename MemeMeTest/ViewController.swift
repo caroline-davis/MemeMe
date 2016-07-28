@@ -70,7 +70,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    
     // Setting the text
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -118,6 +117,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+    }
+    
+    // Hides the battery, time etc on the phone/ipad
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     func subscribeToKeyboardNotifications() {
@@ -177,6 +181,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(pickerController: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
 
 }
 
