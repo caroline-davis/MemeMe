@@ -58,9 +58,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="v1K-4X-Lss">
-                                        <barButtonItem key="leftBarButtonItem" title="Save" id="Uiy-0l-22G">
+                                        <barButtonItem key="leftBarButtonItem" title="Share" id="Uiy-0l-22G">
                                             <connections>
-                                                <action selector="save" destination="BYZ-38-t0r" id="1vc-03-Ban"/>
+                                                <action selector="share" destination="BYZ-38-t0r" id="t49-rv-7jq"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="0sd-JA-dwx"/>
@@ -93,7 +93,7 @@
                         <outlet property="bottomToolBar" destination="n1K-3A-D6W" id="pPF-VJ-xBr"/>
                         <outlet property="cameraPicker" destination="n8a-WI-FyK" id="Hyt-oT-KEN"/>
                         <outlet property="imagePickerView" destination="xbx-fv-lO4" id="GcL-gi-3Rf"/>
-                        <outlet property="saveMe" destination="Uiy-0l-22G" id="Om0-mf-Hf6"/>
+                        <outlet property="shareMe" destination="Uiy-0l-22G" id="4aN-18-W9Z"/>
                         <outlet property="topText" destination="BPt-UG-OVY" id="BXc-4i-Om6"/>
                         <outlet property="topToolBar" destination="yAm-6K-vvV" id="TEj-xs-1Id"/>
                     </connections>

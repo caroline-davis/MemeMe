@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topToolBar: UINavigationBar!
-    @IBOutlet weak var saveMe: UIBarButtonItem!
+    @IBOutlet weak var shareMe: UIBarButtonItem!
     
     
     struct Meme {
@@ -27,17 +27,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     //Creating the meme
-    @IBAction func save() {
-        
+    func save() {
+        print ("hellooo????")
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage:
             imagePickerView.image!, memedImage: generateMemedImage())
-        let share = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
-        self.presentViewController(share, animated: true, completion: nil)
-        
-      //  UIActivityViewControllerCompletionWithItemsHandler()
     }
     
-    
+    @IBAction func share() {
+        let memedImage = self.generateMemedImage()
+        let share = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        //If user finishes an action in the activity view controller we call the save method and dismiss view controller
+        share.completionWithItemsHandler = {
+            activity, completed, items, error in
+            if completed {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        self.presentViewController(share, animated: true, completion: nil)
+    }
     
     func generateMemedImage() -> UIImage {
         print("I want to kill")
@@ -83,7 +92,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.textAlignment = .Center
         bottomText.delegate = self
         
-        saveMe.enabled = false
+        shareMe.enabled = false
     }
     
     // Text deletes when user starts typing
@@ -160,7 +169,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(pickerController: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
-            saveMe.enabled = true
+            shareMe.enabled = true
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
