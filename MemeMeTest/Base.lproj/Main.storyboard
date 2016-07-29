@@ -14,22 +14,14 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleAspectFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbx-fv-lO4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbx-fv-lO4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="5B4-ir-aFT">
-                                <rect key="frame" x="0.0" y="466" width="600" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <connections>
-                                    <action selector="textFieldDidBeginEditing:bottomText:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="wVg-mT-1YE"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="BPt-UG-OVY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="BPt-UG-OVY">
                                 <rect key="frame" x="0.0" y="90" width="600" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -67,12 +59,20 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="j8H-AY-sH8"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="5B4-ir-aFT">
+                                <rect key="frame" x="0.0" y="466" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <connections>
+                                    <action selector="textFieldDidBeginEditing:bottomText:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="wVg-mT-1YE"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="n1K-3A-D6W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="2AO-0u-TkJ"/>
                             <constraint firstItem="yAm-6K-vvV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="3m8-K2-7pi"/>
-                            <constraint firstItem="BPt-UG-OVY" firstAttribute="top" secondItem="yAm-6K-vvV" secondAttribute="bottom" constant="60" id="4mS-Gd-wS6"/>
+                            <constraint firstItem="BPt-UG-OVY" firstAttribute="top" secondItem="yAm-6K-vvV" secondAttribute="bottom" constant="35" id="4mS-Gd-wS6"/>
                             <constraint firstItem="xbx-fv-lO4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="7Xp-Am-94r"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BPt-UG-OVY" secondAttribute="trailing" constant="-20" id="8lB-p6-8tY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="n1K-3A-D6W" secondAttribute="trailing" constant="-20" id="C79-QN-YH5"/>
@@ -81,7 +81,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="n1K-3A-D6W" secondAttribute="bottom" id="QnC-Gf-5mm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xbx-fv-lO4" secondAttribute="bottom" id="STO-jo-zhm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yAm-6K-vvV" secondAttribute="trailing" constant="-20" id="be8-fm-aFt"/>
-                            <constraint firstItem="n1K-3A-D6W" firstAttribute="top" secondItem="5B4-ir-aFT" secondAttribute="bottom" constant="60" id="foh-ul-yyv"/>
+                            <constraint firstItem="n1K-3A-D6W" firstAttribute="top" secondItem="5B4-ir-aFT" secondAttribute="bottom" constant="35" id="foh-ul-yyv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xbx-fv-lO4" secondAttribute="trailing" constant="-20" id="kjL-EN-yF7"/>
                             <constraint firstItem="xbx-fv-lO4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="oi0-nc-gnC"/>
                             <constraint firstItem="BPt-UG-OVY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="vPh-iB-Ivi"/>

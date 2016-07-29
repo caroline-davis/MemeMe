@@ -18,7 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topToolBar: UINavigationBar!
     @IBOutlet weak var shareMe: UIBarButtonItem!
     
-    
     struct Meme {
         var topText: String
         var bottomText: String
@@ -28,9 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Creating the meme
     func save() {
-        print ("hellooo????")
-        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage:
-            imagePickerView.image!, memedImage: generateMemedImage())
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
     }
     
     @IBAction func share() {
@@ -49,21 +46,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func generateMemedImage() -> UIImage {
-        print("I want to kill")
-        
-        // TODO: Hide toolbar and navbar
+
+        // Hide toolbar and navbar
         bottomToolBar.hidden = true
         topToolBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame,
-                                    afterScreenUpdates: true)
-        let memedImage : UIImage =
-            UIGraphicsGetImageFromCurrentImageContext()
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar
+        // Show toolbar and navbar
         bottomToolBar.hidden = false
         topToolBar.hidden = false
         
@@ -94,13 +88,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareMe.enabled = false
     }
     
-    // Text deletes when user starts typing
+    // Text deletes when User starts typing
     @IBAction func textFieldDidBeginEditing(topText: UITextField, bottomText: UITextField) {
         topText.text = ""
         bottomText.text = ""
     }
     
-    // when enter is pressed keyboard is dismissed
+    // When enter is pressed keyboard is dismissed
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -132,9 +126,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
     }
     
-    // When the keyboardWillShow notification is received, shift the view's frame up      
+    // When the keyboardWillShow notification is received, shift the view's frame up
+    // - Only set for bottom text to make sure top text is always seen
     func keyboardWillShow(notification: NSNotification) {
-        view.frame.origin.y = -getKeyboardHeight(notification)
+        if self.bottomText.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification) - 45
+        }
     }
     
     func subscribeToKeyboardHideNotifications() {
