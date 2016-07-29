@@ -78,20 +78,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topText.text = "TOP"
         topText.defaultTextAttributes = memeTextAttributes
         topText.textAlignment = .Center
+        topText.tag = 1
         topText.delegate = self
         
         bottomText.text = "BOTTOM"
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.textAlignment = .Center
+        bottomText.tag = 2
         bottomText.delegate = self
         
         shareMe.enabled = false
     }
     
-    // Text deletes when User starts typing
-    @IBAction func textFieldDidBeginEditing(topText: UITextField, bottomText: UITextField) {
-        topText.text = ""
-        bottomText.text = ""
+    var topTextCounter = 0
+    var bottomTextCounter = 0
+    
+    // Text deletes when User starts typing    
+    @IBAction func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.tag == 1 {
+            if topTextCounter == 0 {
+                topText.text = ""
+                topTextCounter += 1
+            }
+        } else if textField.tag == 2 {
+            if bottomTextCounter == 0 {
+                bottomText.text = ""
+                bottomTextCounter += 1
+            }
+        }
     }
     
     // When enter is pressed keyboard is dismissed
@@ -178,7 +192,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(pickerController: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
 
 }
 
