@@ -75,17 +75,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topText.text = "TOP"
-        topText.defaultTextAttributes = memeTextAttributes
-        topText.textAlignment = .Center
-        topText.tag = 1
-        topText.delegate = self
+        // Defining default text field values
+        func configureTextFields(textField: UITextField, text: String, tag: Int) {
+            textField.text = text
+            textField.defaultTextAttributes = memeTextAttributes
+            textField.textAlignment = .Center
+            textField.tag = tag
+            textField.delegate = self
+        }
         
-        bottomText.text = "BOTTOM"
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.textAlignment = .Center
-        bottomText.tag = 2
-        bottomText.delegate = self
+        configureTextFields(topText, text: "TOP", tag: 1)
+        configureTextFields(bottomText, text: "BOTTOM", tag: 2)
         
         shareMe.enabled = false
     }
@@ -125,6 +125,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardHideNotifications()
     }
     
     // Hides the battery, time etc on the phone/ipad
@@ -166,19 +167,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
-
-    @IBAction func pickAnImage(sender: AnyObject) {
+    
+    // Choosing an image based on source type
+    func pickImage(sourceType: String) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        if(sourceType == "photo") {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        } else if (sourceType == "camera") {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        }
         presentViewController(imagePicker, animated: true, completion: nil)
+    }
+
+    @IBAction func pickAnImage(sender: AnyObject) {
+        pickImage("photo")
     }
     
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
+        pickImage("camera")
     }
     
     func imagePickerController(pickerController: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
