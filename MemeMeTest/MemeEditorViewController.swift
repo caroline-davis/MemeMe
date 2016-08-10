@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMeTest
 //
 //  Created by Caroline Davis on 22/07/2016.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraPicker: UIBarButtonItem!
@@ -18,23 +18,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topToolBar: UINavigationBar!
     @IBOutlet weak var shareMe: UIBarButtonItem!
     
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-    }
     
     //Creating the meme
     func save() {
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+        
+        // Add meme to array of memes on the app delegate file
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     @IBAction func share() {
         let memedImage = self.generateMemedImage()
         let share = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
-        //If user finishes an action in the activity view controller we call the save method and dismiss view controller
+        // If user finishes an action in the activity view controller we call the save method and dismiss view controller
         share.completionWithItemsHandler = {
             activity, completed, items, error in
             if completed {
