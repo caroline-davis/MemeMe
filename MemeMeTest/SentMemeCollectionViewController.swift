@@ -1,5 +1,5 @@
 //
-//  MemeCollectionViewController.swift
+//  SentMemeCollectionViewController.swift
 //  MemeMeTest
 //
 //  Created by Caroline Davis on 10/08/2016.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class MemeCollectionViewController: UIViewController {
+class SentMemeCollectionViewController: UICollectionViewController {
     
-    @IBOutlet weak var flowLayout: UICollectionViewLayout!
+
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
