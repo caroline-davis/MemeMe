@@ -44,6 +44,7 @@
         <!--SentMeme Table Nav Controller-->
         <scene sceneID="D7h-1d-a28">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BG4-sF-xGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="NKI-jB-sS1" userLabel="SentMeme Table Nav Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List View" id="qbi-LO-XRG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BMj-3F-HMC">
@@ -54,7 +55,6 @@
                         <segue destination="fQp-Xh-qbd" kind="relationship" relationship="rootViewController" id="69X-9Y-tk0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BG4-sF-xGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-600" y="273"/>
         </scene>
@@ -98,7 +98,7 @@
                     <navigationItem key="navigationItem" id="jx6-83-PGh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IlU-4D-JSc">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="VsZ-Hh-7Lz"/>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" id="VsZ-Hh-7Lz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -136,7 +136,7 @@
                     <navigationItem key="navigationItem" id="qWM-q4-W0j">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="13M-W7-8gx">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="wEt-AO-7JK"/>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" id="wEt-AO-7JK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

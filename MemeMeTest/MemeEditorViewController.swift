@@ -74,10 +74,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Adds right bar button "Cancel" and navigates back to start
+        // Adds right bar button "Cancel"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MemeEditorViewController.cancel))
-        
-    
         
         // Defining default text field values
         func configureTextFields(textField: UITextField, text: String, tag: Int) {
@@ -94,11 +92,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareMe.enabled = false
     }
     
+    // Navigates the cancel button back to the start
     func cancel() {
         if let navigationController = self.navigationController {
             navigationController.popToRootViewControllerAnimated(true)
         }
     }
+    
     
     var topTextCounter = 0
     var bottomTextCounter = 0
