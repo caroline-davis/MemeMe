@@ -44,7 +44,6 @@
         <!--SentMeme Table Nav Controller-->
         <scene sceneID="D7h-1d-a28">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BG4-sF-xGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="NKI-jB-sS1" userLabel="SentMeme Table Nav Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List View" id="qbi-LO-XRG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BMj-3F-HMC">
@@ -55,6 +54,7 @@
                         <segue destination="fQp-Xh-qbd" kind="relationship" relationship="rootViewController" id="69X-9Y-tk0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BG4-sF-xGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-600" y="273"/>
         </scene>
@@ -98,7 +98,7 @@
                     <navigationItem key="navigationItem" id="jx6-83-PGh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IlU-4D-JSc">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="showDetail" id="VsZ-Hh-7Lz"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="VsZ-Hh-7Lz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rtT-f4-iIp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCell" id="rtT-f4-iIp">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rtT-f4-iIp" id="eaa-3U-weP">
@@ -136,7 +136,7 @@
                     <navigationItem key="navigationItem" id="qWM-q4-W0j">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="13M-W7-8gx">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="showDetail" id="wEt-AO-7JK"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="wEt-AO-7JK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -157,7 +157,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbx-fv-lO4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbx-fv-lO4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="5B4-ir-aFT">
@@ -188,7 +188,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1K-3A-D6W">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1K-3A-D6W">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mkS-3v-774"/>
