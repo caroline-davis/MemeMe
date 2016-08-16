@@ -241,6 +241,46 @@
             </objects>
             <point key="canvasLocation" x="803" y="-65"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="ga5-pZ-VnK">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="SSD-yf-oBd" customClass="MemeDetailViewController" customModule="MemeMeTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z8R-qE-BC1"/>
+                        <viewControllerLayoutGuide type="bottom" id="YkI-zf-otH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fo4-wg-FQB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byK-TX-RGG">
+                                <rect key="frame" x="279" y="84" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNi-eU-77y">
+                                <rect key="frame" x="187" y="207" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9s-ri-sxd">
+                                <rect key="frame" x="279" y="444" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomLabel" destination="o9s-ri-sxd" id="U4M-g2-YKw"/>
+                        <outlet property="imageView" destination="uNi-eU-77y" id="2dy-wu-Kv8"/>
+                        <outlet property="topLabel" destination="byK-TX-RGG" id="DEL-zo-znr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5SQ-vX-gzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1448" y="-65"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="wEt-AO-7JK"/>

@@ -47,9 +47,11 @@ class SentMemeTableViewController: UITableViewController {
     
     // Third essential func - what happens when tableview cell is tapped
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("SentMemeTableViewController") as! SentMemeTableViewController
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+    
+        detailController.meme = self.memes[indexPath.row]
         
-   //     detailController.tableCell = self.memes[indexPath.row]
+        // Present the view controller using navigation
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
