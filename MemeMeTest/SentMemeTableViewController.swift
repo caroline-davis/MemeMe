@@ -36,11 +36,11 @@ class SentMemeTableViewController: UITableViewController {
     // Second essential func - create a cell for each tableview row
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // reuses a cell or creates a new one
-        var cell = tableView.dequeueReusableCellWithIdentifier(self.tableCell)!
+        let cell = tableView.dequeueReusableCellWithIdentifier(self.tableCell)!
         let meme = self.memes[indexPath.row]
         
         cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = meme.topText + " " + meme.bottomText
+        cell.textLabel?.text = meme.topText + "..." + meme.bottomText
         
         return cell
     }
