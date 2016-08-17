@@ -201,6 +201,11 @@
                                                 <action selector="share" destination="BYZ-38-t0r" id="t49-rv-7jq"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="NHa-Ql-EcX">
+                                            <connections>
+                                                <action selector="cancelView" destination="BYZ-38-t0r" id="ciE-YJ-0n3"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -247,6 +252,7 @@
                         <outlet property="bottomText" destination="5B4-ir-aFT" id="BzE-ei-UNY"/>
                         <outlet property="bottomToolBar" destination="n1K-3A-D6W" id="pPF-VJ-xBr"/>
                         <outlet property="cameraPicker" destination="n8a-WI-FyK" id="Hyt-oT-KEN"/>
+                        <outlet property="cancel" destination="NHa-Ql-EcX" id="Kt3-53-8Ps"/>
                         <outlet property="imagePickerView" destination="xbx-fv-lO4" id="GcL-gi-3Rf"/>
                         <outlet property="shareMe" destination="Uiy-0l-22G" id="4aN-18-W9Z"/>
                         <outlet property="topText" destination="BPt-UG-OVY" id="BXc-4i-Om6"/>
