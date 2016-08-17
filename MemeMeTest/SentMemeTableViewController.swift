@@ -55,6 +55,4 @@ class SentMemeTableViewController: UITableViewController {
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
-    
-    
 }

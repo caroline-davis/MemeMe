@@ -21,6 +21,11 @@ class MemeDetailViewController: UIViewController {
         
         // hides tab bar default on bottom
         self.tabBarController?.tabBar.hidden = true
-    } 
+    }
+    
+    // shows tab bar again when the page is closed
+    override func viewWillDisappear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
+    }
     
 }
