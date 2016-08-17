@@ -20,8 +20,11 @@ class SentMemeTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
     
     // The array of saved meme data coming from AppDelegate
     var memes: [Meme] {
