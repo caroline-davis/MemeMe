@@ -89,18 +89,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         shareMe.enabled = false
         
-        // Adds right bar button "Cancel"
-       // self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(cancel))
-        
     }
     
 
     // Navigates the cancel button back to the start
     @IBAction func cancelView() {
-        self.dismissViewControllerAnimated(true, completion: {})
-        //if let navigationController = self.navigationController {
-            //navigationController.popToRootViewControllerAnimated(true)
-        //}
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
