@@ -20,16 +20,20 @@ class SentMemeCollectionViewController: UICollectionViewController {
         
         // The size of the collection view cells
         let space: CGFloat = 3.0
-        let width = (view.frame.size.width - (2 * space)) / 3.0
-        let height = (view.frame.size.height - (2 * space)) / 3.0
+        let width = (self.view.frame.size.width - (2 * space)) / 3.0
+        let height = (self.view.frame.size.height - (2 * space)) / 3.0
         
+        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(width, height)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         self.collectionView?.reloadData()
     }
+
     
     // The array of saved meme data coming from AppDelegate
     var memes: [Meme] {

@@ -20,7 +20,8 @@ class SentMemeTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-    }
+
+    }    
     
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()

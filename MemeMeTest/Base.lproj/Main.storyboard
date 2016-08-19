@@ -65,6 +65,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cY1-lt-POS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3NX-WX-APA">
                             <size key="itemSize" width="88" height="73"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -72,22 +73,25 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="VbA-sm-nYl" customClass="MemeCollectionViewCell" customModule="MemeMeTest" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="Cell" id="VbA-sm-nYl" customClass="memeCell" customModule="MemeMeTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="88" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="88" height="73"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TNy-KO-AEd">
-                                            <rect key="frame" x="-76" y="-33" width="240" height="128"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TNy-KO-AEd">
+                                            <rect key="frame" x="0.0" y="0.0" width="88" height="73"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <outlet property="memeImageView" destination="TNy-KO-AEd" id="QaQ-YA-qHF"/>
-                                </connections>
+                                <constraints>
+                                    <constraint firstItem="TNy-KO-AEd" firstAttribute="top" secondItem="VbA-sm-nYl" secondAttribute="topMargin" constant="-8" id="3bP-9d-QUw"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="TNy-KO-AEd" secondAttribute="trailing" constant="-8" id="5Di-am-TGC"/>
+                                    <constraint firstItem="TNy-KO-AEd" firstAttribute="leading" secondItem="VbA-sm-nYl" secondAttribute="leadingMargin" constant="-8" id="UgW-Uo-pwO"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="TNy-KO-AEd" secondAttribute="bottom" constant="-8" id="siP-VI-6tg"/>
+                                </constraints>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -122,11 +126,11 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCell" textLabel="1lW-cJ-RRu" detailTextLabel="gS0-AN-fP0" style="IBUITableViewCellStyleValue2" id="rtT-f4-iIp">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rtT-f4-iIp" id="eaa-3U-weP">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="rtT-f4-iIp" id="eaa-3U-weP">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1lW-cJ-RRu">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1lW-cJ-RRu">
                                             <rect key="frame" x="15" y="15" width="91" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>

@@ -13,11 +13,12 @@ class memeCell: UICollectionViewCell {
     var memeImageView: UIImageView!
     
     override init(frame: CGRect) {
+        print ("hi man")
         
-        memeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height*2/3))
+        memeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height:frame.size.height*2/3))
         super.init(frame: frame)
         memeImageView.contentMode = UIViewContentMode.ScaleAspectFit
-        contentView.addSubview(memeImageView)
+        contentView.addSubview(self.memeImageView)
    
     }
     
